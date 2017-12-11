@@ -8,5 +8,25 @@ namespace _EDD_Practica1_201404215
 {
     class Pila
     {
+
+        NodoPila tope;
+        NodoPila fin;
+        
+        public Pila() {
+
+        }
+
+        public void insertarPila(NodoPila nuevo) {
+            if (tope == null)
+            {
+                tope = nuevo;
+                fin = nuevo;
+            }
+            else {
+                nuevo.Siguiente = fin;
+                fin = nuevo;
+            }
+
+        }
     }
 }
