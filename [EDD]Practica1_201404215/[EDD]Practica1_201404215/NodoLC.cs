@@ -18,6 +18,12 @@ namespace _EDD_Practica1_201404215
         private Pila pila;
         private Cola cola;
 
+        public NodoLC() {
+
+            pila = new Pila();
+            cola = new Cola();
+        }
+
         public string Nombre
         {
             get{ return nombre;}

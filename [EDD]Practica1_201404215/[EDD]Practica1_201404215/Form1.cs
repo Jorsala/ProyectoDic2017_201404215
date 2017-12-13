@@ -43,5 +43,12 @@ namespace _EDD_Practica1_201404215
         {
             list.recorrerLista(temp);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            String nombre = txtUs.Text;
+            String contrase = txtPass.Text;
+            list.buscarNodoLC(nombre, contrase);
+        }
     }
 }

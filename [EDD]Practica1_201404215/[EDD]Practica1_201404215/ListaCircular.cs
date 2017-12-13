@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace _EDD_Practica1_201404215
 {
@@ -126,16 +127,21 @@ namespace _EDD_Practica1_201404215
         public void buscarNodoLC(String nombre, String Contra) {
             NodoLC temporal = inicio;
             while (temporal != inicio) {
-                if (nombre == temporal.Nombre && Contra == temporal.Pass1) {
-
+                if (temporal.Nombre == nombre && temporal.Pass1 == Contra)
+                {
+                    Console.Write("El nodo si se encontro");
+                    MessageBox.Show("Encontre el usuario");
                     break;
                 }
+                else {
+                    Console.Write("el nodo no se encontro");
+                }
                 temporal =temporal.Siguiente;
-
+                
 
             }
             //temporal es el nodo de los datos ingresados, que voy a usar para trabjar
-
+            
         }
     }
 }

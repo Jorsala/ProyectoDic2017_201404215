@@ -8,29 +8,12 @@ namespace _EDD_Practica1_201404215
 {
     class NodoPila
     {
-       private int posx;
-       private int posy;
-       private int dato;
+ 
 
        private NodoPila siguiente;
+        private Matriz matriz;
 
-        public int Posx
-        {
-            get{return posx;}
-            set{posx = value;}
-        }
 
-        public int Posy
-        {
-            get{return posy;}
-            set{posy = value;}
-        }
-
-        public int Dato
-        {
-            get{return dato;}
-            set{dato = value;}
-        }
 
        public NodoPila Siguiente
         {
@@ -38,6 +21,17 @@ namespace _EDD_Practica1_201404215
             set{siguiente = value;}
         }
 
+       public Matriz Matriz
+        {
+            get
+            {
+                return matriz;
+            }
 
+            set
+            {
+                matriz = value;
+            }
+        }
     }
 }
