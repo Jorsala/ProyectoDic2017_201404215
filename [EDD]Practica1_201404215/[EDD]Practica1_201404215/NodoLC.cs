@@ -15,6 +15,9 @@ namespace _EDD_Practica1_201404215
         private NodoLC siguiente;
         private NodoLC anterior;
 
+        private Pila pila;
+        private Cola cola;
+
         public string Nombre
         {
             get{ return nombre;}
@@ -39,16 +42,32 @@ namespace _EDD_Practica1_201404215
             set{anterior = value;}
         }
 
-        public NodoLC() {
+        internal Pila Pila
+        {
+            get
+            {
+                return pila;
+            }
 
-            Nombre = "";
-            Pass1 = "";
-
-            Siguiente = new NodoLC();
-            Anterior = new NodoLC();
-
-
-
+            set
+            {
+                pila = value;
+            }
         }
+
+        internal Cola Cola
+        {
+            get
+            {
+                return cola;
+            }
+
+            set
+            {
+                cola = value;
+            }
+        }
+
+
     }
 }

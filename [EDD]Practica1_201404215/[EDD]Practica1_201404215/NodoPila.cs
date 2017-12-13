@@ -38,13 +38,6 @@ namespace _EDD_Practica1_201404215
             set{siguiente = value;}
         }
 
-        public NodoPila() {
 
-            Posx = 0;
-            Posy = 0;
-            Dato = 0;
-
-            Siguiente = new NodoPila(); 
-        }
     }
 }

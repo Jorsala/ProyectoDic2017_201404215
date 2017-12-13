@@ -11,7 +11,8 @@ namespace _EDD_Practica1_201404215
         NodoCola inicio;
         NodoCola fin;
         public Cola() {
-
+            inicio = null;
+            fin = null;
         }
 
         public void insertarCola(NodoCola nuevo) {

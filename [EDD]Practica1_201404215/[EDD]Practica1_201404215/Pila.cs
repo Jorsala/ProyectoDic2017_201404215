@@ -13,7 +13,8 @@ namespace _EDD_Practica1_201404215
         NodoPila fin;
         
         public Pila() {
-
+            tope = null;
+            fin = null;
         }
 
         public void insertarPila(NodoPila nuevo) {
