@@ -178,20 +178,51 @@ namespace _EDD_Practica1_201404215
 
         public void recorrerMatriz1(int dimx, int dimy)
         {
-            NodoMatriz temporalhor, temporalver;
+            NodoMatriz temporalhor, temporalver, regresador;
             int x = 0;
             int y = 0;
             temporalhor = inicio;
             temporalver = inicio;
+            
 
             archivo1 = new StreamWriter(@"C:\Users\Jorge Salazar\Desktop\archivo3.txt");
             archivo1.Write("Digraph U { \n");
             archivo1.Write("Node" + x + "[label=" + "\"" + temporalhor.Dato + "\"]; \n");
-            while (temporalhor != null) {
-                archivo1.Write("\"x = " + temporalhor.Posx + "\" " + "[pos= \"" + ((temporalhor.Posx + 1) * 150) + ",0]" + "\" ; \n");
-                temporalhor = temporalhor.Derecha;
+
+
+
+            for (int i =0; i < dimy; i++) {
+
+                for (int j =0; j<dimx; j++) {
+
+                    if(temporalhor != null) {
+                        archivo1.Write("\"x = " + temporalhor.Posx + "\" " + "[pos= \"" + ((temporalhor.Posx + 1) * 150) + ","+ ((temporalhor.Posy+1)*-100) + "\"]" + ";\n");
+                        temporalhor = temporalhor.Derecha;
+                        x++;
+                    }
+
+                }
+                temporalver = temporalver.Abajo;
+
+                if (temporalver == null)
+                {
+                    break;
+
+                }
+                else
+                {
+
+                    temporalhor = temporalver;
+                    archivo1.Write("\"y = " + temporalhor.Posx + "\" " + "[pos= \"" + ((temporalhor.Posx + 1) * 150) + "," + ((temporalhor.Posy + 1) * -100) + "\"]" + ";\n");
+                    //Console.WriteLine(temporal1.Posy);
+                    //Console.Write("\n");
+                }
+                y++;
+
             }
 
+
+            
 
             archivo1.Write("}");
             archivo1.Close();
