@@ -30,7 +30,8 @@ namespace _EDD_Practica1_201404215
         private void button1_Click(object sender, EventArgs e)
         {
             list.recorrerLista(temp);
-       
+            //pictureBox1.Image = Image.FromFile("C:/Users/Jorge Salazar/Desktop/graph.png");
+
         }
     }
 }

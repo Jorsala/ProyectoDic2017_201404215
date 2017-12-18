@@ -45,7 +45,7 @@ namespace _EDD_Practica1_201404215
         {
           
             ma.crearMatriz(6,6);
-            ma.recorrerMatriz(6, 6);
+            ma.recorrerMatriz1(6, 6);
             
         }
 
