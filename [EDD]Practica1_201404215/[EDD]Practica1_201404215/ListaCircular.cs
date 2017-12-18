@@ -9,35 +9,38 @@ using System.Windows.Forms;
 
 namespace _EDD_Practica1_201404215
 {
-    class ListaCircular
+    public class ListaCircular
     {
 
         TextWriter archivo;
         NodoLC inicio = new NodoLC();
         NodoLC fin = new NodoLC();
-        
+
         int contadorLista = 0;
 
-        public ListaCircular() {
+        public ListaCircular()
+        {
             inicio = null;
             fin = null;
 
 
         }
 
-        public void insertarLC(NodoLC nuevo) {
+        public void insertarLC(NodoLC nuevo)
+        {
             if (inicio == null)
             {
                 inicio = nuevo;
                 fin = nuevo;
                 inicio.Siguiente = inicio;
                 inicio.Anterior = fin;
-                Console.WriteLine("Se inserto un nodo en la lista vacia "+ nuevo.Nombre.ToString());
-                
+                Console.WriteLine("Se inserto un nodo en la lista vacia " + nuevo.Nombre.ToString());
+
                 contadorLista++;
 
             }
-            else {
+            else
+            {
                 fin.Siguiente = nuevo;
                 inicio.Anterior = nuevo;
                 nuevo.Anterior = fin;
@@ -58,7 +61,9 @@ namespace _EDD_Practica1_201404215
             }
         }
 
-        public void recorrerLista(NodoLC temporal) {
+        public void recorrerLista(NodoLC temporal)
+        {
+
             temporal = inicio;
             archivo = new StreamWriter(@"C:\Users\Jorge Salazar\Desktop\archivo1.txt");
             archivo.Write("Digraph U { \n");
@@ -74,17 +79,18 @@ namespace _EDD_Practica1_201404215
                     if (temporal.Siguiente != inicio)
                     {
                         archivo.Write(" Node" + contador + "->Node" + (contador + 1) + "\n");
-                       archivo.Write(" Node" + (contador+1)+ "->Node" + (contador ) + "\n");
+                        archivo.Write(" Node" + (contador + 1) + "->Node" + (contador) + "\n");
                     }
-                    else {
+                    else
+                    {
                         archivo.Write("Node" + contador + "->Node0 \n");
-                        archivo.Write("Node0->"  + "Node"+ contador+ " \n");
+                        archivo.Write("Node0->" + "Node" + contador + " \n");
                     }
                     temporal = temporal.Siguiente;
                     contador++;
 
 
-                } while (temporal != inicio); 
+                } while (temporal != inicio);
 
 
 
@@ -113,7 +119,8 @@ namespace _EDD_Practica1_201404215
                 Process.Start(startInfo);
 
             }
-            else {
+            else
+            {
                 Console.WriteLine("la lista esta vacia ");
                 archivo.Write("}");
                 archivo.Close();
@@ -124,24 +131,37 @@ namespace _EDD_Practica1_201404215
 
         }
 
-        public void buscarNodoLC(String nombre, String Contra) {
-            NodoLC temporal = inicio;
-            while (temporal != inicio) {
-                if (temporal.Nombre == nombre && temporal.Pass1 == Contra)
+
+        public bool buscarNodoLC(String nombre, String contra)
+        {
+            NodoLC temporal = new NodoLC();
+            temporal = inicio;
+            bool encontrado = false;
+
+
+            if (temporal != null)
+            {
+                do
                 {
-                    Console.Write("El nodo si se encontro");
-                    MessageBox.Show("Encontre el usuario");
-                    break;
+                    if (temporal.Nombre == nombre && temporal.Pass1 == contra) {
+                        encontrado = true;
+                        MessageBox.Show("Se encontro el nodo buscado");
+                    }
+                    temporal = temporal.Siguiente;
+
+
+                } while (temporal != inicio && encontrado != true);
+                if (!encontrado) {
+                    MessageBox.Show("no se encontro dato");
+                    return false;
                 }
-                else {
-                    Console.Write("el nodo no se encontro");
-                }
-                temporal =temporal.Siguiente;
-                
+                return true;
 
             }
-            //temporal es el nodo de los datos ingresados, que voy a usar para trabjar
-            
+            else {
+                MessageBox.Show("La lista esta vacia");
+            }
+            return false;
         }
     }
 }

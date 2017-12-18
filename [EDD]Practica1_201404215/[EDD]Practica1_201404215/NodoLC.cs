@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _EDD_Practica1_201404215
 {
-    class NodoLC
+   public class NodoLC
     {
 
         private  String nombre;
@@ -14,6 +14,8 @@ namespace _EDD_Practica1_201404215
 
         private NodoLC siguiente;
         private NodoLC anterior;
+
+        //lo que tengo que crear son nodos de las otras estructuras
 
         private Pila pila;
         private Cola cola;
